@@ -1,3 +1,4 @@
+import 'package:acha_facil/data/features_data.dart';
 import 'package:acha_facil/presentation/widgets/atoms/most_used_feat_card.dart';
 import 'package:flutter/material.dart';
 
@@ -6,23 +7,21 @@ class MostUsedFeatSection extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Expanded(
-      child: GridView.builder(
-        physics: const NeverScrollableScrollPhysics(),
-        gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-          crossAxisCount: 2,
-          childAspectRatio: 3 / 2,
-          crossAxisSpacing: 10,
-          mainAxisSpacing: 10,
-        ),
-        itemCount: 4,
-        itemBuilder: (context, index) {
-          return const MostUsedFeatCard(
-            title: 'Feature Title',
-            iconPath: 'assets/images/whatsapp.png',
-          );
-        },
+    return GridView.builder(
+      shrinkWrap: true,
+      physics: const NeverScrollableScrollPhysics(),
+      gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+        crossAxisCount: 2,
+        crossAxisSpacing: 24,
+        mainAxisSpacing: 24,
       ),
+      itemCount: featuresData.length,
+      itemBuilder: (context, index) {
+        return MostUsedFeatCard(
+          title: featuresData[index].title,
+          iconPath: featuresData[index].iconPath,
+        );
+      },
     );
   }
 }

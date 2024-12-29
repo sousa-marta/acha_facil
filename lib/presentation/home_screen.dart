@@ -10,27 +10,29 @@ class HomeScreen extends StatelessWidget {
       appBar: AppBar(
         title: const Text('Home Screen'),
       ),
-      body: Column(
-        children: <Widget>[
-          const Padding(
-            padding: EdgeInsets.all(16.0),
-            child: Text(
-              'Lista de Itens',
-              style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+      body: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 16.0),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            const Text(
+              'Mais Acessados',
+              style: TextStyle(fontSize: 32, fontWeight: FontWeight.bold),
             ),
-          ),
-          const MostUsedFeatSection(),
-          Expanded(
-            child: ListView.builder(
-              itemCount: 20,
-              itemBuilder: (context, index) {
-                return ListTile(
-                  title: Text('Item ${index + 1}'),
-                );
-              },
+            const SizedBox(height: 32.0),
+            const MostUsedFeatSection(),
+            Expanded(
+              child: ListView.builder(
+                itemCount: 20,
+                itemBuilder: (context, index) {
+                  return ListTile(
+                    title: Text('Item ${index + 1}'),
+                  );
+                },
+              ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }

@@ -7,7 +7,7 @@ class MostUsedFeatCard extends StatelessWidget {
   const MostUsedFeatCard({
     required this.title,
     required this.iconPath,
-    super.key
+    super.key,
   });
 
   @override
@@ -27,16 +27,20 @@ class MostUsedFeatCard extends StatelessWidget {
         ],
       ),
       child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Image.asset(
             iconPath,
-            width: 50.0,
-            height: 50.0,
+            width: 70.0,
+            height: 70.0,
           ),
-          const SizedBox(height: 8.0),
-          Text(
-            title,
-            style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+          const SizedBox(height: 16.0),
+          Flexible(
+            child: Text(
+              title,
+              style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+              softWrap: true,
+            ),
           ),
         ],
       ),
