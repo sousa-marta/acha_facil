@@ -1,4 +1,7 @@
+import 'package:acha_facil/data/features_data.dart';
+import 'package:acha_facil/presentation/widgets/atoms/line.dart';
 import 'package:acha_facil/presentation/widgets/molecules/most_used_feat_section.dart';
+import 'package:acha_facil/presentation/widgets/molecules/section.dart';
 import 'package:flutter/material.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -12,26 +15,34 @@ class HomeScreen extends StatelessWidget {
       ),
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 16.0),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            const Text(
-              'Mais Acessados',
-              style: TextStyle(fontSize: 32, fontWeight: FontWeight.bold),
-            ),
-            const SizedBox(height: 32.0),
-            const MostUsedFeatSection(),
-            Expanded(
-              child: ListView.builder(
-                itemCount: 20,
-                itemBuilder: (context, index) {
-                  return ListTile(
-                    title: Text('Item ${index + 1}'),
-                  );
-                },
+        child: SingleChildScrollView(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              const Line(),
+              const SizedBox(height: 32.0),
+              const Text(
+                'Mais Acessados',
+                style: TextStyle(fontSize: 32, fontWeight: FontWeight.bold),
               ),
-            ),
-          ],
+              const SizedBox(height: 32.0),
+              const MostUsedFeatSection(),
+              Section(
+                sectionTitle: 'Categorias',
+                featuresData: featuresData,
+              ),
+              // Expanded(
+              //   child: ListView.builder(
+              //     itemCount: 20,
+              //     itemBuilder: (context, index) {
+              //       return ListTile(
+              //         title: Text('Item ${index + 1}'),
+              //       );
+              //     },
+              //   ),
+              // ),
+            ],
+          ),
         ),
       ),
     );

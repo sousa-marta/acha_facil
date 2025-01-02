@@ -2,7 +2,8 @@ import 'dart:ui';
 
 enum Category {
   none,
-  communication
+  communication,
+  health,
 }
 
 class FeatureModel {
