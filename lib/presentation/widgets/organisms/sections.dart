@@ -1,0 +1,43 @@
+import 'package:acha_facil/data/features_data.dart';
+import 'package:acha_facil/models/feature_model.dart';
+import 'package:acha_facil/presentation/widgets/atoms/line.dart';
+import 'package:acha_facil/presentation/widgets/molecules/section_cards.dart';
+import 'package:flutter/material.dart';
+
+class Sections extends StatelessWidget {
+  final List<FeatureModel> featuresData;
+  const Sections(this.featuresData, {super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.symmetric(vertical: 32.0),
+      child: Column(
+        children: [
+          ...Category.values
+              .where((category) => category != Category.none)
+              .map((category) {
+            final categoryFeatureData = featuresData
+                .where((feature) => feature.category == category)
+                .toList();
+            return Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                const Line(),
+                const SizedBox(height: 32.0),
+                Text(
+                  category.value,
+                  style: const TextStyle(
+                      fontSize: 32, fontWeight: FontWeight.bold),
+                ),
+                const SizedBox(height: 32.0),
+                SectionCards(categoryData: categoryFeatureData),
+                const SizedBox(height: 6.0),
+              ],
+            );
+          }),
+        ],
+      ),
+    );
+  }
+}

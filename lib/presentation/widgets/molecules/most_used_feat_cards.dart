@@ -2,8 +2,8 @@ import 'package:acha_facil/data/features_data.dart';
 import 'package:acha_facil/presentation/widgets/atoms/most_used_feat_card.dart';
 import 'package:flutter/material.dart';
 
-class MostUsedFeatSection extends StatelessWidget {
-  const MostUsedFeatSection({super.key});
+class MostUsedFeatCards extends StatelessWidget {
+  const MostUsedFeatCards({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -15,7 +15,7 @@ class MostUsedFeatSection extends StatelessWidget {
         crossAxisSpacing: 24,
         mainAxisSpacing: 24,
       ),
-      itemCount: featuresData.length,
+      itemCount: featuresData.length > 4 ? 4 : featuresData.length,
       itemBuilder: (context, index) {
         return MostUsedFeatCard(
           title: featuresData[index].title,
