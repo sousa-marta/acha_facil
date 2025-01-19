@@ -4,9 +4,13 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'package:uuid/uuid.dart';
 
 enum Category {
-  none('Outros'),
   communication('Comunicação'),
-  health('Saúde');
+  socialMedia('Redes Sociais'),
+  media('Fotos e Vídeos'),
+  health('Saúde'),
+  internet('Internet'),
+  services('Services'),
+  none('Outros');
 
   final String value;
   const Category(this.value);

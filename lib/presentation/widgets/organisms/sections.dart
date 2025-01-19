@@ -23,17 +23,18 @@ class Sections extends StatelessWidget {
               categoryTitle: category.value,
             );
           }),
-          ...Category.values
-              .where((category) => category == Category.none)
-              .map((category) {
-            final categoryFeatureData = featuresData
-                .where((feature) => feature.category == category)
-                .toList();
-            return SectionCards(
-              categoryData: categoryFeatureData,
-              categoryTitle: category.value,
-            );
-          }),
+          // Decidir se vai ter uma categoria none
+          // ...Category.values
+          //     .where((category) => category == Category.none)
+          //     .map((category) {
+          //   final categoryFeatureData = featuresData
+          //       .where((feature) => feature.category == category)
+          //       .toList();
+          //   return SectionCards(
+          //     categoryData: categoryFeatureData,
+          //     categoryTitle: category.value,
+          //   );
+          // }),
         ],
       ),
     );
