@@ -34,9 +34,13 @@ class SectionCards extends StatelessWidget {
             return Padding(
               padding: const EdgeInsets.only(bottom: 26),
               child: CardFullInfo(
+                id: feature.id,
                 title: feature.title,
                 iconPath: feature.iconPath,
                 description: feature.description ?? '',
+                navigateTo: feature.navigateTo,
+                playStoreUrl: feature.playStoreUrl,
+                appleStoreUrl: feature.appleStoreUrl,
               ),
             );
           }).toList(),
