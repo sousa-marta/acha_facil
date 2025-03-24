@@ -5,23 +5,63 @@ class FeatureActionUtils {
   static Future<void> navigateToApp(String id) async {
     switch (id) {
       case '1': // Whatsapp
-        _openWhatsApp();
+        _openWithIntent(
+          action: 'android.intent.action.VIEW',
+          data: Uri.parse('whatsapp://').toString(),
+        );
         break;
       case '2': // Telefone
-        _openDialer();
+        _openWithIntent(
+          action: 'android.intent.action.DIAL',
+          data: 'tel:',
+        );
         break;
       case '3': // Contatos
-        _openContacts();
+        _openWithIntent(
+          action: 'android.intent.action.VIEW',
+          data: 'content://contacts/people/',
+        );
+        break;
+      case '4': // Placeholder
+        // Add implementation for feature 4
+        break;
+      case '5': // Placeholder
+        // Add implementation for feature 5
+        break;
+      case '6': // Placeholder
+        // Add implementation for feature 6
         break;
       case '7': // Camera
-        _openCamera();
+        _openWithIntent(
+          action: 'android.media.action.IMAGE_CAPTURE',
+        );
+        break;
+      case '8': // Placeholder
+        // Add implementation for feature 8
+        break;
+      case '9': // Placeholder
+        // Add implementation for feature 9
         break;
       case '10': // Google
         await _openUrl('https://www.google.com');
         break;
+      case '11': // Placeholder
+        // Add implementation for feature 11
+        break;
+      case '12': // Placeholder
+        // Add implementation for feature 12
+        break;
       default:
         throw Exception('No action defined for feature with id: $id');
     }
+  }
+
+  static void _openWithIntent({required String action, String? data}) {
+    final intent = AndroidIntent(
+      action: action,
+      data: data,
+    );
+    intent.launch();
   }
 
   static Future<void> _openUrl(String url) async {
@@ -33,34 +73,22 @@ class FeatureActionUtils {
     }
   }
 
-  static void _openWhatsApp() {
-    final intent = AndroidIntent(
-      action: 'android.intent.action.VIEW',
-      data: Uri.parse('whatsapp://').toString(),
-    );
-    intent.launch();
-  }
 
-  static void _openDialer() {
-    const intent = AndroidIntent(
-      action: 'android.intent.action.DIAL',
-      data: 'tel:',
-    );
-    intent.launch();
-  }
-
-  static void _openContacts() {
-    const intent = AndroidIntent(
-      action: 'android.intent.action.VIEW',
-      data: 'content://contacts/people/',
-    );
-    intent.launch();
-  }
-
-  static void _openCamera() {
-    const intent = AndroidIntent(
-      action: 'android.media.action.IMAGE_CAPTURE',
-    );
-    intent.launch();
-  }
 }
+
+
+  // Future<void> _navigateToApp(
+  //     {required String navigateTo,
+  //     String? appleStoreUrl,
+  //     String? playStoreUrl}) async {
+  //   final Uri appUri = Uri.parse(navigateTo);
+
+  //   if (await canLaunchUrl(appUri)) {
+  //     await launchUrl(appUri);
+  //   } else {
+  //     if (appleStoreUrl != null && playStoreUrl != null) {
+  //       await _openStore(
+  //           appleStoreUrl: appleStoreUrl, playStoreUrl: playStoreUrl);
+  //     }
+  //   }
+  // }

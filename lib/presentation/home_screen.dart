@@ -1,5 +1,4 @@
 import 'package:acha_facil/data/features_data.dart';
-import 'package:acha_facil/presentation/widgets/atoms/line.dart';
 import 'package:acha_facil/presentation/widgets/organisms/header.dart';
 import 'package:acha_facil/presentation/widgets/organisms/most_used_feat_section.dart';
 import 'package:acha_facil/presentation/widgets/organisms/sections.dart';
@@ -18,7 +17,6 @@ class HomeScreen extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               const Header(),
-              const Line(),
               const MostUsedFeatSection(),
               Sections(featuresData),
             ],

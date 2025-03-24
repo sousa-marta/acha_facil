@@ -1,11 +1,15 @@
+import 'package:acha_facil/utils/feature_action_utils.dart';
+import 'package:acha_facil/utils/shared_preferences_utils.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class MostUsedFeatCard extends StatelessWidget {
+  final String id;
   final String title;
   final String iconPath;
 
   const MostUsedFeatCard({
+    required this.id,
     required this.title,
     required this.iconPath,
     super.key,
@@ -14,7 +18,14 @@ class MostUsedFeatCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return CupertinoButton(
-      onPressed: () {},
+      onPressed: () async {
+                SharedPreferencesUtils.incrementClickCount(id);
+
+        await FeatureActionUtils.navigateToApp(id);
+
+        await SharedPreferencesUtils
+            .printClickCounts(); //TODO REMOVE AFTER TESTING
+      },
       padding: const EdgeInsets.all(0),
       child: Container(
         padding: const EdgeInsets.all(16.0),

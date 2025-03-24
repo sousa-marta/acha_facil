@@ -30,13 +30,8 @@ class CardFullInfo extends StatelessWidget {
   Widget build(BuildContext context) {
     return CupertinoButton(
       onPressed: () async {
-        await SharedPreferencesUtils.incrementClickCount(id);
-        // _navigateToApp(
-        //   navigateTo: navigateTo,
-        //   appleStoreUrl: appleStoreUrl,
-        //   playStoreUrl: playStoreUrl,
-        // );
-        // _openDialer();
+        SharedPreferencesUtils.incrementClickCount(id);
+
         await FeatureActionUtils.navigateToApp(id);
 
         await SharedPreferencesUtils
@@ -104,21 +99,21 @@ class CardFullInfo extends StatelessWidget {
     );
   }
 
-  Future<void> _navigateToApp(
-      {required String navigateTo,
-      String? appleStoreUrl,
-      String? playStoreUrl}) async {
-    final Uri appUri = Uri.parse(navigateTo);
+  // Future<void> _navigateToApp(
+  //     {required String navigateTo,
+  //     String? appleStoreUrl,
+  //     String? playStoreUrl}) async {
+  //   final Uri appUri = Uri.parse(navigateTo);
 
-    if (await canLaunchUrl(appUri)) {
-      await launchUrl(appUri);
-    } else {
-      if (appleStoreUrl != null && playStoreUrl != null) {
-        await _openStore(
-            appleStoreUrl: appleStoreUrl, playStoreUrl: playStoreUrl);
-      }
-    }
-  }
+  //   if (await canLaunchUrl(appUri)) {
+  //     await launchUrl(appUri);
+  //   } else {
+  //     if (appleStoreUrl != null && playStoreUrl != null) {
+  //       await _openStore(
+  //           appleStoreUrl: appleStoreUrl, playStoreUrl: playStoreUrl);
+  //     }
+  //   }
+  // }
 
 
   // Future<void> _openWhatsApp() async {
