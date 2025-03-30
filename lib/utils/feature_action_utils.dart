@@ -8,91 +8,129 @@ class FeatureActionUtils {
   static Future<void> navigateToApp(String id) async {
     switch (id) {
       case '1': // Whatsapp
-        _openWithIntent(
-          action: 'android.intent.action.VIEW',
-          data: Uri.parse('whatsapp://').toString(),
+        // await _openUrl(
+        //   appUrl: 'https://wa.me', // URL scheme to open WhatsApp
+        //   playStoreUrl:
+        //       'market://details?id=com.whatsapp', // Fallback to Play Store if not installed
+        // );
+        // break;
+        //         await _openWithIntent(
+        //   action: 'android.intent.action.VIEW',
+        //   data: 'https://www.instagram.com/',
+        //   package: 'com.instagram.android',
+        //   playStoreUrl:
+        //       'https://play.google.com/store/apps/details?id=com.instagram.android',
+        // );
+        await _openWithIntent(
+          action: 'android.intent.action.MAIN',
+          category: 'android.intent.category.LAUNCHER',
+          package: 'com.whatsapp',
           playStoreUrl:
               'https://play.google.com/store/apps/details?id=com.whatsapp',
         );
         break;
-      case '2': // Telefone
-        _openWithIntent(
+      case '2': // Phone
+        await _openWithIntent(
           action: 'android.intent.action.DIAL',
           data: 'tel:',
         );
         break;
-      case '3': // Contatos
-        _openWithIntent(
+      case '3': // Contacts
+        await _openWithIntent(
           action: 'android.intent.action.VIEW',
           data: 'content://contacts/people/',
         );
         break;
-      case '4':
-        _openWithIntent(
+      case '4': // E-mail
+        await _openWithIntent(
           action: 'android.intent.action.MAIN',
           category: 'android.intent.category.APP_EMAIL',
           flags: [FLAG_ACTIVITY_NEW_TASK],
         );
         break;
-      case '5':
+      case '5': // Facebook
         await _openUrl(
           appUrl: 'fb://page',
           playStoreUrl:
-          'https://play.google.com/store/apps/details?id=com.facebook.katana',
+              'https://play.google.com/store/apps/details?id=com.facebook.katana',
         );
         break;
-      case '6': // Placeholder
-        // Add implementation for feature 6
+      case '6': // Instagram
+        await _openWithIntent(
+          action: 'android.intent.action.VIEW',
+          data: 'https://www.instagram.com/',
+          package: 'com.instagram.android',
+          playStoreUrl:
+              'https://play.google.com/store/apps/details?id=com.instagram.android',
+        );
         break;
       case '7': // Camera
-        _openWithIntent(
+        await _openWithIntent(
           action: 'android.media.action.IMAGE_CAPTURE',
         );
         break;
-      case '8': // Placeholder
-        // Add implementation for feature 8
+      case '8': // Pictures Gallery
+        await _openWithIntent(
+          action: 'android.intent.action.PICK',
+          data: 'content://media/external/images/media',
+        );
         break;
-      case '9': // Placeholder
+      case '9': // Medicines
         // Add implementation for feature 9
         break;
       case '10': // Google
-        await _openUrl(appUrl: 'https://www.google.com');
+        await _openUrl(
+          appUrl: 'https://www.google.com',
+          playStoreUrl:
+              'https://play.google.com/store/apps/details?id=com.google.android.googlequicksearchbox',
+        );
         break;
-      case '11': // Placeholder
-        // Add implementation for feature 11
+      case '11': // Youtube
+        await _openWithIntent(
+          action: 'android.intent.action.VIEW',
+          data: 'vnd.youtube:',
+          playStoreUrl:
+              'https://play.google.com/store/apps/details?id=com.google.android.youtube',
+        );
         break;
-      case '12': // Placeholder
-        // Add implementation for feature 12
+      case '12': // gov.br
+        await _openUrl(
+          appUrl: 'https://www.gov.br',
+          playStoreUrl:
+              'https://play.google.com/store/apps/details?id=br.gov.meugovbr',
+        );
         break;
       default:
         throw Exception('No action defined for feature with id: $id');
     }
   }
 
-  static void _openWithIntent({
-    required String action,
+  static Future<void> _openWithIntent({
+    String? action,
     String? data,
     String? category,
+    String? componentName,
     List<int>? flags,
+    String? package,
     String? playStoreUrl,
-  }) {
+  }) async {
     try {
       final intent = AndroidIntent(
         action: action,
         category: category,
+        componentName: componentName,
         flags: flags,
+        package: package,
         data: data,
       );
-      intent.launch();
+      await intent.launch();
     } on PlatformException catch (e) {
-      // Handle the case where no activity is found to handle the intent
       if (playStoreUrl != null) {
-        _openStore(playStoreUrl: playStoreUrl);
+        await _openStore(playStoreUrl: playStoreUrl);
       } else {
         print('Failed to launch intent: $e');
       }
     } catch (e) {
-      // Handle any other exceptions
       print('Unexpected error: $e');
     }
   }
