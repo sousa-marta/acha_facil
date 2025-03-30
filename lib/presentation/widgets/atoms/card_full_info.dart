@@ -1,9 +1,6 @@
-import 'dart:io';
-
 import 'package:acha_facil/utils/feature_action_utils.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:url_launcher/url_launcher.dart';
 import 'package:acha_facil/utils/shared_preferences_utils.dart';
 
 class CardFullInfo extends StatelessWidget {
@@ -97,53 +94,5 @@ class CardFullInfo extends StatelessWidget {
         ),
       ),
     );
-  }
-
-  // Future<void> _navigateToApp(
-  //     {required String navigateTo,
-  //     String? appleStoreUrl,
-  //     String? playStoreUrl}) async {
-  //   final Uri appUri = Uri.parse(navigateTo);
-
-  //   if (await canLaunchUrl(appUri)) {
-  //     await launchUrl(appUri);
-  //   } else {
-  //     if (appleStoreUrl != null && playStoreUrl != null) {
-  //       await _openStore(
-  //           appleStoreUrl: appleStoreUrl, playStoreUrl: playStoreUrl);
-  //     }
-  //   }
-  // }
-
-
-  // Future<void> _openWhatsApp() async {
-  //   const url = 'https://wa.me';
-  //   if (await canLaunchUrl(Uri.parse(url))) {
-  //     await launchUrl(Uri.parse(url));
-  //   } else {
-  //     await _openStore();
-  //   }
-  // }
-  // Future<void> _openWhatsApp() async {
-  //   const String whatsappUrl = 'https://wa.me';
-
-  //   final Uri whatsappUri = Uri.parse(whatsappUrl);
-
-  //   if (!await launchUrl(whatsappUri)) {
-  //     await _openStore();
-  //     // throw Exception('Could not launch $_url');
-  //   }
-  // }
-
-  Future<void> _openStore(
-      {required String appleStoreUrl, required String playStoreUrl}) async {
-    final Uri storeUri =
-        Uri.parse(Platform.isIOS ? appleStoreUrl : playStoreUrl);
-
-    if (await canLaunchUrl(storeUri)) {
-      await launchUrl(storeUri);
-    } else {
-      throw 'Não foi possível abrir a loja de aplicativos';
-    }
   }
 }
