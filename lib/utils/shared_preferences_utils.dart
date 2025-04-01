@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 const getNMostTapped = 4;
@@ -10,7 +11,9 @@ class SharedPreferencesUtils {
     await prefs.setInt(key, currentCount + 1);
   }
 
-  static Future<List<String>> getTopClickedItems({int n = getNMostTapped}) async {
+  static Future<List<String>> getTopClickedItems({
+    int n = getNMostTapped,
+  }) async {
     final prefs = await SharedPreferences.getInstance();
     final Map<String, int> clickCounts = {};
 
@@ -23,17 +26,22 @@ class SharedPreferencesUtils {
     final sortedEntries = clickCounts.entries.toList()
       ..sort((a, b) => b.value.compareTo(a.value));
 
-    return sortedEntries.take(n).map((entry) => entry.key.replaceFirst('clickCount_', '')).toList();
+    return sortedEntries
+        .take(n)
+        .map((entry) => entry.key.replaceFirst('clickCount_', ''))
+        .toList();
   }
 
   static Future<void> printClickCounts() async {
     final prefs = await SharedPreferences.getInstance();
-    print('--- Click Counts ---');
-    for (String key in prefs.getKeys()) {
-      if (key.startsWith('clickCount_')) {
-        print('$key: ${prefs.getInt(key)}');
+    if (kDebugMode) {
+      print('--- Click Counts ---');
+      for (String key in prefs.getKeys()) {
+        if (key.startsWith('clickCount_')) {
+          print('$key: ${prefs.getInt(key)}');
+        }
       }
+      print('---------------------');
     }
-    print('---------------------');
   }
 }

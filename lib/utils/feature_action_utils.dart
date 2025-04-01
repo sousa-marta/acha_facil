@@ -1,4 +1,5 @@
 import 'package:android_intent_plus/android_intent.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/services.dart';
 import 'package:url_launcher/url_launcher.dart';
 
@@ -8,25 +9,9 @@ class FeatureActionUtils {
   static Future<void> navigateToApp(String id) async {
     switch (id) {
       case '1': // Whatsapp
-        // await _openUrl(
-        //   appUrl: 'https://wa.me', // URL scheme to open WhatsApp
-        //   playStoreUrl:
-        //       'market://details?id=com.whatsapp', // Fallback to Play Store if not installed
-        // );
-        // break;
-        //         await _openWithIntent(
-        //   action: 'android.intent.action.VIEW',
-        //   data: 'https://www.instagram.com/',
-        //   package: 'com.instagram.android',
-        //   playStoreUrl:
-        //       'https://play.google.com/store/apps/details?id=com.instagram.android',
-        // );
-        await _openWithIntent(
-          action: 'android.intent.action.MAIN',
-          category: 'android.intent.category.LAUNCHER',
-          package: 'com.whatsapp',
-          playStoreUrl:
-              'https://play.google.com/store/apps/details?id=com.whatsapp',
+        await _openUrl(
+          appUrl: 'android-app://com.whatsapp',
+          playStoreUrl: 'market://details?id=com.whatsapp',
         );
         break;
       case '2': // Phone
@@ -48,9 +33,13 @@ class FeatureActionUtils {
           flags: [FLAG_ACTIVITY_NEW_TASK],
         );
         break;
+      //FIXME Only opens in the browser
       case '5': // Facebook
-        await _openUrl(
-          appUrl: 'fb://page',
+        await _openWithIntent(
+          action: 'android.intent.action.VIEW',
+          data: 'https://www.facebook.com/',
+          package: 'com.facebook.katana',
+          // package: 'fb://page',
           playStoreUrl:
               'https://play.google.com/store/apps/details?id=com.facebook.katana',
         );
@@ -79,8 +68,11 @@ class FeatureActionUtils {
         // Add implementation for feature 9
         break;
       case '10': // Google
-        await _openUrl(
-          appUrl: 'https://www.google.com',
+        //FIXME Only opens in the browser
+        await _openWithIntent(
+          action: 'android.intent.action.VIEW',
+          package: 'com.google.android.googlequicksearchbox', //not working
+          data: 'https://www.google.com',
           playStoreUrl:
               'https://play.google.com/store/apps/details?id=com.google.android.googlequicksearchbox',
         );
@@ -93,9 +85,12 @@ class FeatureActionUtils {
               'https://play.google.com/store/apps/details?id=com.google.android.youtube',
         );
         break;
+      //FIXME Only opens in the browser
       case '12': // gov.br
-        await _openUrl(
-          appUrl: 'https://www.gov.br',
+        await _openWithIntent(
+          action: 'android.intent.action.VIEW',
+          // package: 'br.gov.meugovbr',
+          data: 'https://www.gov.br',
           playStoreUrl:
               'https://play.google.com/store/apps/details?id=br.gov.meugovbr',
         );
@@ -128,10 +123,10 @@ class FeatureActionUtils {
       if (playStoreUrl != null) {
         await _openStore(playStoreUrl: playStoreUrl);
       } else {
-        print('Failed to launch intent: $e');
+        if (kDebugMode) print('Failed to launch intent: $e');
       }
     } catch (e) {
-      print('Unexpected error: $e');
+      if (kDebugMode) print('Unexpected error: $e');
     }
   }
 

@@ -28,11 +28,7 @@ class CardFullInfo extends StatelessWidget {
     return CupertinoButton(
       onPressed: () async {
         SharedPreferencesUtils.incrementClickCount(id);
-
         await FeatureActionUtils.navigateToApp(id);
-
-        await SharedPreferencesUtils
-            .printClickCounts(); //TODO REMOVE AFTER TESTING
       },
       padding: const EdgeInsets.all(0),
       child: Container(

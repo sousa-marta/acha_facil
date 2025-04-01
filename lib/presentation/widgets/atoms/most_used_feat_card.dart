@@ -19,12 +19,8 @@ class MostUsedFeatCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return CupertinoButton(
       onPressed: () async {
-                SharedPreferencesUtils.incrementClickCount(id);
-
+        SharedPreferencesUtils.incrementClickCount(id);
         await FeatureActionUtils.navigateToApp(id);
-
-        await SharedPreferencesUtils
-            .printClickCounts(); //TODO REMOVE AFTER TESTING
       },
       padding: const EdgeInsets.all(0),
       child: Container(
