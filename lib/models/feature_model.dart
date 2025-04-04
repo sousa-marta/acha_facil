@@ -18,7 +18,6 @@ class FeatureModel {
   final String title;
   final String? description;
   final String iconPath;
-  final String navigateTo;
   final String? playStoreUrl;
   final String? appleStoreUrl;
   final Color color;
@@ -29,7 +28,6 @@ class FeatureModel {
     required this.title,
     this.description,
     required this.iconPath,
-    required this.navigateTo,
     this.playStoreUrl,
     this.appleStoreUrl,
     this.color = const Color(0xFF000000),

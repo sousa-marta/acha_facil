@@ -1,5 +1,5 @@
-import 'package:acha_facil/presentation/widgets/molecules/full_date.dart';
-import 'package:acha_facil/presentation/widgets/molecules/greetings.dart';
+import 'package:acha_facil/presentation/home_screen/widgets/molecules/full_date.dart';
+import 'package:acha_facil/presentation/home_screen/widgets/molecules/greetings.dart';
 import 'package:flutter/material.dart';
 
 class Header extends StatelessWidget {

@@ -7,7 +7,6 @@ final featuresData = [
     description:
         'Mande mensagens pela internet - precisa estar conectado à internet!',
     iconPath: 'assets/images/whatsapp.png',
-    navigateTo: 'https://wa.me',
     playStoreUrl: 'https://play.google.com/store/apps/details?id=com.whatsapp',
     appleStoreUrl:
         'https://apps.apple.com/br/app/whatsapp-messenger/id310633997',
@@ -18,7 +17,6 @@ final featuresData = [
     title: 'Telefone',
     description: 'Faça ligações usando a rede de telefone',
     iconPath: 'assets/images/phone.png',
-    navigateTo: 'path',
     category: Category.communication,
   ),
   FeatureModel(
@@ -26,7 +24,6 @@ final featuresData = [
     title: 'Contatos',
     description: 'Visualize seus contatos salvos',
     iconPath: 'assets/images/contacts.png',
-    navigateTo: 'path',
     category: Category.communication,
   ),
   FeatureModel(
@@ -35,7 +32,6 @@ final featuresData = [
     description:
         'Acesse seu e-mail - precisa ter conta e estar conectado à internet!',
     iconPath: 'assets/images/email.png',
-    navigateTo: 'path',
     category: Category.communication,
   ),
   FeatureModel(
@@ -44,7 +40,6 @@ final featuresData = [
     description:
         'Acesse o Facebook - precisa ter conta e estar conectado à internet!',
     iconPath: 'assets/images/facebook.png',
-    navigateTo: 'path',
     category: Category.socialMedia,
   ),
   FeatureModel(
@@ -53,7 +48,6 @@ final featuresData = [
     description:
         'Acesse o Instagram - precisa ter conta e estar conectado à internet!',
     iconPath: 'assets/images/instagram.png',
-    navigateTo: 'path',
     category: Category.socialMedia,
   ),
   FeatureModel(
@@ -61,7 +55,6 @@ final featuresData = [
     title: 'Câmera',
     description: 'Acesse a câmera do seu celular para tirar fotos',
     iconPath: 'assets/images/camera.png',
-    navigateTo: 'camera://',
     category: Category.media,
   ),
   FeatureModel(
@@ -69,7 +62,6 @@ final featuresData = [
     title: 'Galeria de Fotos',
     description: 'Visualize as fotos tiradas com sua câmera',
     iconPath: 'assets/images/galeria.png',
-    navigateTo: 'path',
     category: Category.media,
   ),
   FeatureModel(
@@ -77,7 +69,6 @@ final featuresData = [
     title: 'Controle de Remédios',
     description: 'Visualize o controle de remédios',
     iconPath: 'assets/images/remedios.png',
-    navigateTo: 'path',
     category: Category.health,
   ),
   FeatureModel(
@@ -85,7 +76,6 @@ final featuresData = [
     title: 'Google',
     description: 'Acesse o Google para fazer pesquisas',
     iconPath: 'assets/images/google.png',
-    navigateTo: 'path',
     category: Category.internet,
   ),
   FeatureModel(
@@ -93,7 +83,6 @@ final featuresData = [
     title: 'Youtube',
     description: 'Acesse o Youtube para assistir vídeos',
     iconPath: 'assets/images/youtube.png',
-    navigateTo: 'path',
     category: Category.internet,
   ),
   FeatureModel(
@@ -101,7 +90,6 @@ final featuresData = [
     title: 'gov.br',
     description: 'Acesse o gov.br para acessar serviços do governo',
     iconPath: 'assets/images/govbr.png',
-    navigateTo: 'path',
     category: Category.services,
   ),
 ];

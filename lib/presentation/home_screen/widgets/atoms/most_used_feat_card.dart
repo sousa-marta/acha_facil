@@ -20,7 +20,7 @@ class MostUsedFeatCard extends StatelessWidget {
     return CupertinoButton(
       onPressed: () async {
         SharedPreferencesUtils.incrementClickCount(id);
-        await FeatureActionUtils.navigateToApp(id);
+        await FeatureActionUtils().navigate(context, id);
       },
       padding: const EdgeInsets.all(0),
       child: Container(

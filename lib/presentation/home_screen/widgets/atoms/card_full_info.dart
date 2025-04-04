@@ -8,7 +8,6 @@ class CardFullInfo extends StatelessWidget {
   final String title;
   final String iconPath;
   final String description;
-  final String navigateTo;
   final String? playStoreUrl;
   final String? appleStoreUrl;
 
@@ -17,7 +16,6 @@ class CardFullInfo extends StatelessWidget {
     required this.title,
     required this.iconPath,
     required this.description,
-    required this.navigateTo,
     this.playStoreUrl,
     this.appleStoreUrl,
     super.key,
@@ -28,7 +26,7 @@ class CardFullInfo extends StatelessWidget {
     return CupertinoButton(
       onPressed: () async {
         SharedPreferencesUtils.incrementClickCount(id);
-        await FeatureActionUtils.navigateToApp(id);
+        await FeatureActionUtils().navigate(context, id);
       },
       padding: const EdgeInsets.all(0),
       child: Container(

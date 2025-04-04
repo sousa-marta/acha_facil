@@ -1,5 +1,5 @@
-import 'package:acha_facil/presentation/widgets/atoms/line.dart';
-import 'package:acha_facil/presentation/widgets/molecules/most_used_feat_cards.dart';
+import 'package:acha_facil/presentation/home_screen/widgets/atoms/line.dart';
+import 'package:acha_facil/presentation/home_screen/widgets/molecules/most_used_feat_cards.dart';
 import 'package:flutter/material.dart';
 import 'package:acha_facil/data/features_data.dart';
 import 'package:acha_facil/utils/shared_preferences_utils.dart';

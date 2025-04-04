@@ -1,6 +1,6 @@
 import 'package:acha_facil/models/feature_model.dart';
-import 'package:acha_facil/presentation/widgets/atoms/card_full_info.dart';
-import 'package:acha_facil/presentation/widgets/atoms/line.dart';
+import 'package:acha_facil/presentation/home_screen/widgets/atoms/card_full_info.dart';
+import 'package:acha_facil/presentation/home_screen/widgets/atoms/line.dart';
 import 'package:flutter/material.dart';
 
 class SectionCards extends StatelessWidget {
@@ -38,7 +38,6 @@ class SectionCards extends StatelessWidget {
                 title: feature.title,
                 iconPath: feature.iconPath,
                 description: feature.description ?? '',
-                navigateTo: feature.navigateTo,
                 playStoreUrl: feature.playStoreUrl,
                 appleStoreUrl: feature.appleStoreUrl,
               ),

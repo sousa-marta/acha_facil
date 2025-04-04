@@ -1,5 +1,5 @@
 import 'package:acha_facil/models/feature_model.dart';
-import 'package:acha_facil/presentation/widgets/molecules/section_cards.dart';
+import 'package:acha_facil/presentation/home_screen/widgets/molecules/section_cards.dart';
 import 'package:flutter/material.dart';
 
 class Sections extends StatelessWidget {

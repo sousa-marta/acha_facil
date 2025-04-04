@@ -1,12 +1,15 @@
+import 'package:acha_facil/utils/app_routes.dart';
 import 'package:android_intent_plus/android_intent.dart';
 import 'package:flutter/foundation.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 const int FLAG_ACTIVITY_NEW_TASK = 268435456;
 
 class FeatureActionUtils {
-  static Future<void> navigateToApp(String id) async {
+  // static 
+  Future<void> navigate(BuildContext context, String id) async {
     switch (id) {
       case '1': // Whatsapp
         await _openUrl(
@@ -65,7 +68,7 @@ class FeatureActionUtils {
         );
         break;
       case '9': // Medicines
-        // Add implementation for feature 9
+        _navigateToInternalPage(context, AppRoutes.medicines);
         break;
       case '10': // Google
         //FIXME Only opens in the browser
@@ -128,6 +131,10 @@ class FeatureActionUtils {
     } catch (e) {
       if (kDebugMode) print('Unexpected error: $e');
     }
+  }
+
+  void _navigateToInternalPage(BuildContext context, String route) {
+    Navigator.pushNamed(context, route);
   }
 
   static Future<void> _openUrl(
