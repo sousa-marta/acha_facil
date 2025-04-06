@@ -7,8 +7,7 @@ import 'package:url_launcher/url_launcher.dart';
 
 const int FLAG_ACTIVITY_NEW_TASK = 268435456;
 
-class FeatureActionUtils {
-  // static 
+class FeatureNavigationHandler {
   Future<void> navigate(BuildContext context, String id) async {
     switch (id) {
       case '1': // Whatsapp

@@ -13,7 +13,7 @@ enum Category {
   const Category(this.value);
 }
 
-class FeatureModel {
+class Feature {
   final String id;
   final String title;
   final String? description;
@@ -21,7 +21,7 @@ class FeatureModel {
   final Color color;
   final Category category;
 
-  FeatureModel({
+  Feature({
     required this.id,
     required this.title,
     this.description,

@@ -1,9 +1,9 @@
-import 'package:acha_facil/models/feature_model.dart';
+import 'package:acha_facil/domain/feature_entity.dart';
 import 'package:acha_facil/presentation/home_screen/widgets/molecules/section_cards.dart';
 import 'package:flutter/material.dart';
 
 class Sections extends StatelessWidget {
-  final List<FeatureModel> featuresData;
+  final List<Feature> featuresData;
   const Sections(this.featuresData, {super.key});
 
   @override

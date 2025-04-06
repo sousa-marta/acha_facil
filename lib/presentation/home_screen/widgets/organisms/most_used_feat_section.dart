@@ -2,7 +2,7 @@ import 'package:acha_facil/presentation/home_screen/widgets/atoms/line.dart';
 import 'package:acha_facil/presentation/home_screen/widgets/molecules/most_used_feat_cards.dart';
 import 'package:flutter/material.dart';
 import 'package:acha_facil/data/features_data.dart';
-import 'package:acha_facil/utils/shared_preferences_utils.dart';
+import 'package:acha_facil/data/click_count_local_repository.dart';
 
 class MostUsedFeatSection extends StatelessWidget {
   const MostUsedFeatSection({super.key});
@@ -10,7 +10,7 @@ class MostUsedFeatSection extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return StreamBuilder<List<String>>(
-      stream: SharedPreferencesUtils.getTopClickedItemsStream(),
+      stream: ClickCountLocalRepository.getTopClickedItemsStream(),
       builder: (context, snapshot) {
         if (!snapshot.hasData) {
           return const Center(child: CircularProgressIndicator());

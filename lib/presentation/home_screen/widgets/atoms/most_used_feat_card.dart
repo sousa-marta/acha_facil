@@ -1,5 +1,5 @@
-import 'package:acha_facil/utils/feature_action_utils.dart';
-import 'package:acha_facil/utils/shared_preferences_utils.dart';
+import 'package:acha_facil/presentation/utils/feature_navigation_handler.dart';
+import 'package:acha_facil/data/click_count_local_repository.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -19,8 +19,8 @@ class MostUsedFeatCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return CupertinoButton(
       onPressed: () async {
-        SharedPreferencesUtils.incrementClickCount(id);
-        await FeatureActionUtils().navigate(context, id);
+        ClickCountLocalRepository.incrementClickCount(id);
+        await FeatureNavigationHandler().navigate(context, id);
       },
       padding: const EdgeInsets.all(0),
       child: Container(

@@ -1,9 +1,9 @@
-import 'package:acha_facil/models/feature_model.dart';
+import 'package:acha_facil/domain/feature_entity.dart';
 import 'package:acha_facil/presentation/home_screen/widgets/atoms/most_used_feat_card.dart';
 import 'package:flutter/material.dart';
 
 class MostUsedFeatCards extends StatelessWidget {
-  final List<FeatureModel> topFeatures;
+  final List<Feature> topFeatures;
   
   const MostUsedFeatCards(this.topFeatures, {super.key});
 

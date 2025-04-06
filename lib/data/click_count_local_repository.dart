@@ -5,7 +5,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 const getNMostTapped = 4;
 
-class SharedPreferencesUtils {
+class ClickCountLocalRepository {
   static final _controller = StreamController<List<String>>.broadcast();
 
   static Future<void> incrementClickCount(String id) async {

@@ -1,10 +1,10 @@
-import 'package:acha_facil/models/feature_model.dart';
+import 'package:acha_facil/domain/feature_entity.dart';
 import 'package:acha_facil/presentation/home_screen/widgets/atoms/card_full_info.dart';
 import 'package:acha_facil/presentation/home_screen/widgets/atoms/line.dart';
 import 'package:flutter/material.dart';
 
 class SectionCards extends StatelessWidget {
-  final List<FeatureModel> categoryData;
+  final List<Feature> categoryData;
   final String categoryTitle;
 
   const SectionCards({
