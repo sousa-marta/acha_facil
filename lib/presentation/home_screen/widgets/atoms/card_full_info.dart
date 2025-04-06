@@ -8,16 +8,12 @@ class CardFullInfo extends StatelessWidget {
   final String title;
   final String iconPath;
   final String description;
-  final String? playStoreUrl;
-  final String? appleStoreUrl;
 
   const CardFullInfo({
     required this.id,
     required this.title,
     required this.iconPath,
     required this.description,
-    this.playStoreUrl,
-    this.appleStoreUrl,
     super.key,
   });
 

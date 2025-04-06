@@ -38,8 +38,6 @@ class SectionCards extends StatelessWidget {
                 title: feature.title,
                 iconPath: feature.iconPath,
                 description: feature.description ?? '',
-                playStoreUrl: feature.playStoreUrl,
-                appleStoreUrl: feature.appleStoreUrl,
               ),
             );
           }).toList(),

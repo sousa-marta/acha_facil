@@ -7,9 +7,6 @@ final featuresData = [
     description:
         'Mande mensagens pela internet - precisa estar conectado à internet!',
     iconPath: 'assets/images/whatsapp.png',
-    playStoreUrl: 'https://play.google.com/store/apps/details?id=com.whatsapp',
-    appleStoreUrl:
-        'https://apps.apple.com/br/app/whatsapp-messenger/id310633997',
     category: Category.communication,
   ),
   FeatureModel(
